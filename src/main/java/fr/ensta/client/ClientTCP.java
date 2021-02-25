@@ -1,4 +1,4 @@
-package client;
+package fr.ensta.client;
 
 import java.io.*;
 import java.net.*;

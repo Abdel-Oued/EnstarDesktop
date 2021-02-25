@@ -5,8 +5,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
-import servPattern.IContext;
-import servPattern.IProtocole;
+import fr.ensta.servPattern.IContext;
+import fr.ensta.servPattern.IProtocole;
 
 
 public class ProtocolePingPong implements IProtocole {

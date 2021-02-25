@@ -1,4 +1,4 @@
-package servPattern;
+package fr.ensta.servPattern;
 import java.io.InputStream;
 import java.io.OutputStream;
 

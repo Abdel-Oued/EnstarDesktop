@@ -1,11 +1,12 @@
 package fr.ensta.launchPattern;
 
-import servPattern.ServeurTCP;
+import fr.ensta.servPattern.IContext;
+import fr.ensta.servPattern.ServeurTCP;
 
 public class MainServeur {
 
 	public static void main(String[] args) {
-		ServeurTCP myServ = new ServeurTCP(new UnContexte() , new ProtocolePingPong() , 6666 );
+		ServeurTCP myServ = new ServeurTCP((IContext) new UnContexte(), new ProtocolePingPong() , 6666 );
 		myServ.start();
 		
 	}

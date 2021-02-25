@@ -1,4 +1,4 @@
-package servPattern;
+package fr.ensta.servPattern;
 import java.io.*;
 import java.net.*;
 
