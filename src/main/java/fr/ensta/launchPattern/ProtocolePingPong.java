@@ -1,4 +1,4 @@
-package launchPattern;
+package fr.ensta.launchPattern;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;

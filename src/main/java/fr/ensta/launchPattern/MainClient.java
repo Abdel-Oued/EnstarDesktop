@@ -1,4 +1,4 @@
-package launchPattern;
+package fr.ensta.launchPattern;
 
 import client.ClientTCP;
 
