@@ -28,6 +28,11 @@ public class User implements IUser{
     }
 
     @Override
+    public int envoyer(String message) {
+        return 0;
+    }
+
+    @Override
     public int getUserID() {
         return 0;
     }
