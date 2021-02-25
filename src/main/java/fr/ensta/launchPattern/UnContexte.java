@@ -1,6 +1,6 @@
 package fr.ensta.launchPattern;
 
-import servPattern.IContext;
+import fr.ensta.servPattern.IContext;
 
 public class UnContexte implements IContext {
 

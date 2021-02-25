@@ -1,6 +1,6 @@
 package fr.ensta.launchPattern;
 
-import client.ClientTCP;
+import fr.ensta.client.ClientTCP;
 
 public class MainClient {
 
