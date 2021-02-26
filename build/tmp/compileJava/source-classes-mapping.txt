@@ -2,8 +2,8 @@ fr/ensta/Message/envoieMessageSimple.java
  fr.ensta.Message.envoieMessageSimple
 fr/ensta/launchPattern/ProtocolePingPong.java
  fr.ensta.launchPattern.ProtocolePingPong
-fr/ensta/launchPattern/MainServeur.java
- fr.ensta.launchPattern.MainServeur
+fr/ensta/test/Server.java
+ fr.ensta.test.Server
 fr/ensta/test/Client.java
  fr.ensta.test.Client
  fr.ensta.test.Client$1
@@ -12,10 +12,12 @@ fr/ensta/launchPattern/MainClient.java
  fr.ensta.launchPattern.MainClient
 fr/ensta/Message/IEnvoieMessage.java
  fr.ensta.Message.IEnvoieMessage
-fr/ensta/servPattern/ServeurTCP.java
- fr.ensta.servPattern.ServeurTCP
 fr/ensta/client/User.java
  fr.ensta.client.User
+fr/ensta/servPattern/ServeurTCP.java
+ fr.ensta.servPattern.ServeurTCP
+fr/ensta/test/ClientHandler.java
+ fr.ensta.test.ClientHandler
 fr/ensta/launchPattern/UnContexte.java
  fr.ensta.launchPattern.UnContexte
 fr/ensta/servPattern/IContext.java
@@ -28,7 +30,5 @@ fr/ensta/servPattern/ProcessusTransaction.java
  fr.ensta.servPattern.ProcessusTransaction
 fr/ensta/client/IUser.java
  fr.ensta.client.IUser
-fr/ensta/test/Server.java
- fr.ensta.test.Server
-fr/ensta/test/ClientHandler.java
- fr.ensta.test.ClientHandler
+fr/ensta/launchPattern/MainServeur.java
+ fr.ensta.launchPattern.MainServeur

@@ -1,7 +1,6 @@
-package fr.ensta.Message;
+package fr.ensta.serveurMessagerie;
 
 import fr.ensta.client.IUser;
-import fr.ensta.servPattern.ServeurTCP;
 
 public interface IEnvoieMessage {
     public int envoyer(String message, IUser user);

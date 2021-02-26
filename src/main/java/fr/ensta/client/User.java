@@ -7,29 +7,33 @@ public class User implements IUser{
     private String pwd;
     private ClientTCP monClientTCP;
     private int port;
+
     // create simple user
     public User(String username,String pwd){
         this.username=username;
         this.pwd=pwd;
         monClientTCP=new ClientTCP("localhost",port);
     }
-    public int envoyer(String message,IUser user){
-        monClientTCP.transmettreChaine(message);
-        return 0;
+
+    /**
+     * renvoie 1 si message reçu par le serveur et 0 sinon
+     * */
+    public int envoyerMessage(String message){
+        // message contient le destinataire à qui envoyer
+        String statusString = monClientTCP.transmettreChaine(message);
+        int status = Integer.parseInt(statusString);
+        return status;
     }
+
     @Override
     public boolean ConnexionServeur() {
-        return false;
+
+        return monClientTCP.connecterAuServeur();
     }
 
     @Override
     public void DeconnexionServeur() {
-
-    }
-
-    @Override
-    public int envoyer(String message) {
-        return 0;
+        monClientTCP.deconnecterDuServeur();
     }
 
     @Override

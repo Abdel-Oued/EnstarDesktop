@@ -5,12 +5,12 @@ import java.net.Socket;
 /**
  * Processus de Transaction (anciennement ServeurSpecifique)
  */
-class ProcessusTransaction extends Thread {
+class ProcessusEchange extends Thread {
 
 	private Socket clientSocket;
 	private ServeurTCP monServeurTCP;
 
-	public  ProcessusTransaction(Socket uneSocket, ServeurTCP unServeur) {        
+	public ProcessusEchange(Socket uneSocket, ServeurTCP unServeur) {
 		super("ServeurThread");
 		clientSocket = uneSocket;
 		System.out.println("[ProcessusTransaction] CLIENT : " + clientSocket);

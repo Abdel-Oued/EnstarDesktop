@@ -1,6 +1,7 @@
 package fr.ensta.servPattern;
 import java.io.*;
 import java.net.*;
+import java.util.Vector;
 
 
 public class ServeurTCP extends Thread{
@@ -17,6 +18,8 @@ public class ServeurTCP extends Thread{
 	private IProtocole protocole;
 	
 	private int numeroPort;
+
+	static Vector<ProcessusEchange> processusConnectes = new Vector<>();
 
 	public ServeurTCP(int unNumeroPort) {        
 		numeroPort = unNumeroPort;
@@ -63,8 +66,9 @@ public class ServeurTCP extends Thread{
 				System.out.println("Accept failed: " + serverSocket.getLocalPort() + ", " + e);
 				System.exit(1);
 			}
-			ProcessusTransaction st = new ProcessusTransaction( clientSocket , this );
-			st.start();
+			ProcessusEchange pe = new ProcessusEchange( clientSocket , this );
+			processusConnectes.add(pe);
+			pe.start();
 		}
 		System.out.println("Deja " + nbConnexions + " clients. Maximum autorisé atteint");
 
@@ -85,6 +89,11 @@ public class ServeurTCP extends Thread{
 	public IContext getContexte() {
 		return contexte;
 	}
-		
+
+	public static Vector<ProcessusEchange> getProcessusConnectes() {
+		return processusConnectes;
+	}
+
+
 
 }
