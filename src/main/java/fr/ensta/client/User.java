@@ -1,15 +1,13 @@
 package fr.ensta.client;
 
-import java.net.Socket;
-
 public class User implements IUser{
     private String username;
     private String pwd;
     private ClientTCP monClientTCP;
-    private int port;
+    //private int port;
 
     // create simple user
-    public User(String username,String pwd){
+    public User(String username,String pwd, int port){
         this.username=username;
         this.pwd=pwd;
         monClientTCP=new ClientTCP("localhost",port);
@@ -21,18 +19,29 @@ public class User implements IUser{
     public int envoyerMessage(String message){
         // message contient le destinataire à qui envoyer
         String statusString = monClientTCP.transmettreChaine(message);
-        int status = Integer.parseInt(statusString);
-        return status;
+        //int status = Integer.parseInt(statusString);
+        //Integer.parseInt(statusString);
+        return 1;
+    }
+
+//    public String recevoirMessage(){
+//        // message contient le destinataire à qui envoyer
+//        return monClientTCP.recevoirChaine();
+//    }
+
+    @Override
+    public boolean connexionServeur() {
+        boolean connected = monClientTCP.connecterAuServeur();
+
+        if (connected) {
+            monClientTCP.attendreMessage();
+        }
+        return connected;
     }
 
     @Override
-    public boolean ConnexionServeur() {
-
-        return monClientTCP.connecterAuServeur();
-    }
-
-    @Override
-    public void DeconnexionServeur() {
+    public void deconnexionServeur() {
+        monClientTCP.transmettreChaine("logout");
         monClientTCP.deconnecterDuServeur();
     }
 

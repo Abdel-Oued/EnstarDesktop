@@ -13,7 +13,9 @@ public class ClientTCP {
 
 	private PrintStream socOut;
 
-	private BufferedReader socIn;	
+	private BufferedReader socIn;
+
+	Thread recevoirMessageThread;
 	
 	/** Un client se connecte a un serveur identifie par un nom (unNomServeur), sur un port unNumero */
 	public  ClientTCP(String unNomServeur, int unNumero) {        
@@ -47,6 +49,7 @@ public class ClientTCP {
 	public void deconnecterDuServeur() {        
 		try {
 			System.out.println("[ClientTCP] CLIENT : " + socketServeur);
+			recevoirMessageThread.stop();
 			socOut.close();
 			socIn.close();
 			socketServeur.close();
@@ -61,17 +64,45 @@ public class ClientTCP {
 			System.out.println( "Requete client : " + uneChaine );
 			socOut.println( uneChaine );
 			socOut.flush();
-			msgServeur = socIn.readLine();
-			System.out.println( "Reponse serveur : " + msgServeur );
+			//msgServeur = socIn.readLine();
+			//System.out.println( "Reponse serveur : " + msgServeur );
 
-		} catch (UnknownHostException e) {
-			System.err.println("Serveur inconnu : " + e);
-		} catch (IOException e) {
+//		} catch (UnknownHostException e) {
+//			System.err.println("Serveur inconnu : " + e);
+//		} catch (IOException e) {
+//			System.err.println("Exception entree/sortie:  " + e);
+//			e.printStackTrace();
+//		}
+		} catch (Exception e) {
 			System.err.println("Exception entree/sortie:  " + e);
 			e.printStackTrace();
 		}
 		return msgServeur;
-	} 
+	}
+
+	public void attendreMessage() {
+		final String[] messageRecu = {null};
+		recevoirMessageThread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+
+				while (true) {
+					try {
+						messageRecu[0] = socIn.readLine();
+						System.out.println( "Message recu : " + messageRecu[0]);
+
+					} catch (UnknownHostException e) {
+						System.err.println("Serveur inconnu : " + e);
+					} catch (IOException e) {
+						System.err.println("Exception entree/sortie:  " + e);
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		recevoirMessageThread.start();
+
+	}
 
 	/* A utiliser pour ne pas deleguer la connexion aux interfaces GUI */
 	public String transmettreChaineConnexionPonctuelle(String uneChaine) {
@@ -99,5 +130,8 @@ public class ClientTCP {
 		}
 		return chaineRetour;
 	}
-	
+
+	public BufferedReader getSocIn() {
+		return socIn;
+	}
 }

@@ -50,7 +50,7 @@ public class ServeurTCP extends Thread{
 		try {
 			serverSocket = new ServerSocket ( numeroPort );
 		} catch (IOException e) {
-			System.out.println("Could not listen on port: " + numeroPort + ", " + e);
+			System.out.println("[ServeurTCP] Could not listen on port: " + numeroPort + ", " + e);
 			System.exit(1);
 		}
 
@@ -58,25 +58,25 @@ public class ServeurTCP extends Thread{
 		/* On autorise maxConnexions traitements*/
 		while (nbConnexions <= maxConnexions) {
 			try {
-				System.out.println(" Attente du serveur pour la communication d'un client " );
+				System.out.println("[ServeurTCP] Attente du serveur pour la communication d'un client " );
 				clientSocket = serverSocket.accept();
 				nbConnexions ++;
-				System.out.println("Nb automates : " + nbConnexions);
+				System.out.println("[ServeurTCP] Nb automates : " + nbConnexions);
 			} catch (IOException e) {
-				System.out.println("Accept failed: " + serverSocket.getLocalPort() + ", " + e);
+				System.out.println("[ServeurTCP] Accept failed: " + serverSocket.getLocalPort() + ", " + e);
 				System.exit(1);
 			}
-			ProcessusEchange pe = new ProcessusEchange( clientSocket , this );
+			ProcessusEchange pe = new ProcessusEchange( clientSocket , this , "client " + nbConnexions);
 			processusConnectes.add(pe);
 			pe.start();
 		}
-		System.out.println("Deja " + nbConnexions + " clients. Maximum autorisé atteint");
+		System.out.println("[ServeurTCP] Deja " + nbConnexions + " clients. Maximum autorisé atteint");
 
 		try {
 			serverSocket.close();
 			nbConnexions --;
 		} catch (IOException e) {
-			System.out.println("Could not close");
+			System.out.println("[ServeurTCP] Could not close");
 		}
 
 	} 

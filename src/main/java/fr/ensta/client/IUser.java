@@ -1,9 +1,9 @@
 package fr.ensta.client;
 
 public interface IUser {
-    boolean ConnexionServeur();
+    boolean connexionServeur();
 
-    void DeconnexionServeur();
+    void deconnexionServeur();
     int envoyerMessage(String message);
     int getUserID();
 }

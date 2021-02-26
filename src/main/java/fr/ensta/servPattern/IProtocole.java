@@ -4,6 +4,6 @@ import java.io.OutputStream;
 
 public interface IProtocole {
 
-	public void execute( IContext aContext , InputStream anInputStream , OutputStream anOutputStream );
+	public void execute(IContext aContext, InputStream anInputStream, OutputStream anOutputStream, ProcessusEchange processusEchange);
 	
 }

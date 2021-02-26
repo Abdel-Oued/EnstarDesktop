@@ -7,11 +7,12 @@ import java.io.PrintStream;
 
 import fr.ensta.servPattern.IContext;
 import fr.ensta.servPattern.IProtocole;
+import fr.ensta.servPattern.ProcessusEchange;
 
 
 public class ProtocolePingPong implements IProtocole {
 
-	public void execute( IContext c , InputStream unInput , OutputStream unOutput ) {
+	public void execute(IContext c, InputStream unInput, OutputStream unOutput, ProcessusEchange processusEchange) {
 		
 		String inputReq;
 		BufferedReader is = new BufferedReader(new InputStreamReader(
