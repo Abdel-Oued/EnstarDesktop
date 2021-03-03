@@ -3,6 +3,8 @@ package fr.ensta.client;
 public class User implements IUser{
     private String username;
     private String pwd;
+
+
     private ClientTCP monClientTCP;
     //private int port;
 
@@ -34,7 +36,9 @@ public class User implements IUser{
         boolean connected = monClientTCP.connecterAuServeur();
 
         if (connected) {
-            monClientTCP.attendreMessage();
+            //monClientTCP.attendreMessage();
+            RecevoirMessage recevoirMessage = new RecevoirMessage(this);
+            recevoirMessage.start();
         }
         return connected;
     }
@@ -49,4 +53,9 @@ public class User implements IUser{
     public int getUserID() {
         return 0;
     }
+
+    public ClientTCP getMonClientTCP() {
+        return monClientTCP;
+    }
+
 }

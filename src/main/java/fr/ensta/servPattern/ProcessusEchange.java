@@ -26,7 +26,7 @@ public class ProcessusEchange extends Thread {
 	} 
 
 	public void run() {
-		while(true){
+		while(isloggedin){
 			try {
 				monServeurTCP.getProtocole().execute( monServeurTCP.getContexte() , clientSocket.getInputStream() , clientSocket.getOutputStream(), this );
 				System.out.println("[ProcessusEchange] Processus transaction fait");

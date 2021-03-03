@@ -8,16 +8,16 @@ public class MainClient {
 
     public static void main(String[] args) {
         User myUser = new User("username", "1234", 6666);
-        String myS = null;
+        String myS;
         Scanner aSC = new Scanner( System.in );
 
         if ( myUser.connexionServeur() ) {
-            while(!aSC.equals("logout")) {
+            do {
                 System.out.println(" Saisir un nouveau message !");
                 myS = aSC.nextLine();
 
                 myUser.envoyerMessage( myS );
-            }
+            }while(!myS.equals("logout"));
 
             aSC.close();
             myUser.deconnexionServeur();
