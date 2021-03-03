@@ -6,12 +6,12 @@ public class ServerBDD {
     private static Connection connect = null;
     private static Statement statement = null;
     private static ResultSet resultSet = null;
-    private static String url = "jdbc:mariadb://localhost:3306/EnstarDesktop";
+    private static String url = "jdbc:mysql://localhost:3306/EnstarDesktop";
     private static String user = "root", pass = "";
 
     public static void main(String[] args) {
             try {
-                Class.forName("org.mariadb.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 connect = DriverManager.getConnection(url, user, pass);
                 statement = connect.createStatement();
                 resultSet = statement.executeQuery("select * from users");
