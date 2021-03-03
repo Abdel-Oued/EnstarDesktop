@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 
-<VBox alignment="CENTER" prefHeight="392.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.ClientTCP">
+<VBox alignment="CENTER" prefHeight="392.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.missiontomars.App">
    <children>
       <TitledPane animated="false" prefHeight="394.0" prefWidth="526.0" text="Client-Serveur">
         <content>

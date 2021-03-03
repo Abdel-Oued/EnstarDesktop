@@ -4,7 +4,11 @@
 <?import javafx.scene.shape.*?>
 
 
+<<<<<<< HEAD
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.ClientTCP">
+=======
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.Interface.">
+>>>>>>> origin/master
    <children>
       <Circle
              id="circle" fill="DODGERBLUE" layoutX="241.0" layoutY="142.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
