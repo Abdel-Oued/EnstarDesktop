@@ -1,7 +1,17 @@
 package fr.ensta.client;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.net.*;
+
+import static javafx.application.Application.launch;
 
 public class ClientTCP {
 
@@ -16,6 +26,7 @@ public class ClientTCP {
 	private BufferedReader socIn;
 
 	Thread recevoirMessageThread;
+
 	
 	/** Un client se connecte a un serveur identifie par un nom (unNomServeur), sur un port unNumero */
 	public  ClientTCP(String unNomServeur, int unNumero) {        
