@@ -7,9 +7,15 @@ import java.util.Scanner;
 public class MainClient {
 
     public static void main(String[] args) {
-        User myUser = new User("username", "1234", 6666);
         String myS;
         Scanner aSC = new Scanner( System.in );
+
+        System.out.println(" Saisir votre nom !");
+        String username = aSC.nextLine();
+        System.out.println(" Saisir votre mot de passe !");
+        String password = aSC.nextLine();
+        User myUser = new User(username, password, 6666);
+
 
         if ( myUser.connexionServeur() ) {
             do {
