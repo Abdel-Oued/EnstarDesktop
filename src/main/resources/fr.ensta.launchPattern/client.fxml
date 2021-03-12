@@ -4,19 +4,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<VBox alignment="CENTER" prefHeight="392.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.ClientTCP">
+<VBox alignment="CENTER" prefHeight="392.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.ClientGUI">
    <children>
       <TitledPane animated="false" prefHeight="394.0" prefWidth="526.0" text="Client-Serveur">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <PasswordField layoutX="188.0" layoutY="169.0" text="Password" />
-                  <TextField layoutX="187.0" layoutY="128.0" prefHeight="35.0" prefWidth="165.0" text="Email">
+                  <PasswordField fx:id="password" layoutX="188.0" layoutY="169.0" text="Password" />
+                  <TextField fx:id="username" layoutX="187.0" layoutY="128.0" prefHeight="35.0" prefWidth="165.0" text="Email">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
                   </TextField>
+                  <Button fx:id="connexion" alignment="CENTER" layoutX="210.0" layoutY="236.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="124.0" text="Connexion" />
                </children>
             </AnchorPane>
         </content>

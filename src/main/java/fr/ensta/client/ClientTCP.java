@@ -29,8 +29,6 @@ public class ClientTCP {
 
 	private boolean connected;
 
-	//Thread recevoirMessageThread;
-
 	
 	/** Un client se connecte a un serveur identifie par un nom (unNomServeur), sur un port unNumero */
 	public  ClientTCP(String unNomServeur, int unNumero) {        
@@ -87,10 +85,6 @@ public class ClientTCP {
 
 //		} catch (UnknownHostException e) {
 //			System.err.println("Serveur inconnu : " + e);
-//		} catch (IOException e) {
-//			System.err.println("Exception entree/sortie:  " + e);
-//			e.printStackTrace();
-//		}
 		} catch (Exception e) {
 			System.err.println("Exception entree/sortie:  " + e);
 			e.printStackTrace();
@@ -98,36 +92,13 @@ public class ClientTCP {
 		return msgServeur;
 	}
 
-//	public void attendreMessage() {
-//		final String[] messageRecu = {null};
-//		recevoirMessageThread = new Thread(new Runnable() {
-//			@Override
-//			public void run() {
-//
-//				while (true) {
-//					try {
-//						messageRecu[0] = socIn.readLine();
-//						System.out.println( "Message recu : " + messageRecu[0]);
-//
-//					} catch (UnknownHostException e) {
-//						System.err.println("Serveur inconnu : " + e);
-//					} catch (IOException e) {
-//						System.err.println("Exception entree/sortie:  " + e);
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		});
-//		recevoirMessageThread.start();
-//
-//	}
 
 	/* A utiliser pour ne pas deleguer la connexion aux interfaces GUI */
 	public String transmettreChaineConnexionPonctuelle(String uneChaine) {
 		String msgServeur = null;
 		String chaineRetour = "";
 		System.out.println("\nClient connexionTransmettreChaine " + uneChaine);
-		if (connecterAuServeur() == true) {
+		if (connecterAuServeur()) {
 			try {
 				socOut.println(uneChaine);
 				socOut.flush();

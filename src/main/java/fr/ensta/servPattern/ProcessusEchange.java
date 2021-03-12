@@ -11,6 +11,10 @@ public class ProcessusEchange extends Thread {
 		return clientSocket;
 	}
 
+	public ServeurTCP getMonServeurTCP() {
+		return monServeurTCP;
+	}
+
 	private Socket clientSocket;
 	private ServeurTCP monServeurTCP;
 	private String nom;

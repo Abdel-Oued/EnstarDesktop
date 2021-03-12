@@ -4,6 +4,6 @@ public interface IUser {
     boolean connexionServeur();
 
     void deconnexionServeur();
-    int envoyerMessage(String message);
+    void envoyerMessage(String message);
     int getUserID();
 }
