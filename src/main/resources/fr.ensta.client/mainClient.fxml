@@ -3,25 +3,43 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="403.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.MainClientController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.MainClientController">
    <children>
-      <HBox prefHeight="400.0" prefWidth="361.0">
-         <children>
-            <TitledPane animated="false" prefHeight="400.0" prefWidth="100.0" text="En ligne">
-              <content>
-                 <fx:include fx:id="enLigne" source="enLigne.fxml" />
-              </content>
-            </TitledPane>
-            <TitledPane animated="false" prefHeight="400.0" prefWidth="150.0" text="Boite de reception">
-              <content>
-                  <fx:include fx:id="boiteReception" source="boiteReception.fxml" />
-              </content>
-            </TitledPane>
-             <TitledPane animated="false" prefHeight="403.0" prefWidth="300.0" text="Nouveau message">
-                 <content>
-                     <fx:include fx:id="nouveauMessage" source="nouveauMessage.fxml" />
-                 </content>
-             </TitledPane>
-         </children></HBox>
+       <TabPane layoutX="127.0" layoutY="90.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <tabs>
+          <Tab fx:id="loginTab" text="Login">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
+                      <children>
+                      <PasswordField fx:id="password" alignment="CENTER" layoutX="225.0" layoutY="172.0" text="Password" />
+                      <TextField fx:id="username" alignment="CENTER" layoutX="217.0" layoutY="123.0" prefHeight="35.0" prefWidth="165.0" text="Nom d'utilisateur">
+
+                      </TextField>
+                      <Button fx:id="buttonConnexion" alignment="CENTER" layoutX="238.0" layoutY="224.0" mnemonicParsing="false" onAction="#connexion" prefHeight="35.0" prefWidth="124.0" text="Connexion" />
+                      <Button fx:id="buttonDeconnexion" layoutX="257.0" layoutY="268.0" mnemonicParsing="false" onAction="#deconnexion" text="Deconnexion" visible="false" />
+                     <Label fx:id="resultatConnexion" alignment="CENTER" layoutX="209.0" layoutY="58.0" prefHeight="17.0" prefWidth="181.0" text="Veuillez entrer vos identifiants" />
+                      </children>
+                  </AnchorPane>
+          </Tab>
+          <Tab text="Discussions">
+              <HBox prefHeight="400.0" prefWidth="600.0">
+                  <TitledPane animated="false" prefHeight="400.0" prefWidth="100.0" text="En ligne">
+                      <content>
+                          <fx:include fx:id="enLigne" source="enLigne.fxml" />
+                      </content>
+                  </TitledPane>
+                  <TitledPane animated="false" prefHeight="400.0" prefWidth="200.0" text="Boite de reception">
+                      <content>
+                          <fx:include fx:id="boiteReception" source="boiteReception.fxml" />
+                      </content>
+                  </TitledPane>
+                  <TitledPane animated="false" prefHeight="400.0" prefWidth="300.0" text="Nouveau message">
+                      <content>
+                          <fx:include fx:id="nouveauMessage" source="nouveauMessage.fxml" />
+                      </content>
+                  </TitledPane>
+              </HBox>
+          </Tab>
+      </tabs>
+       </TabPane>
    </children>
 </AnchorPane>
