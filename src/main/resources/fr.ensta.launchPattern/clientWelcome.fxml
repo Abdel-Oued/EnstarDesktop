@@ -11,8 +11,8 @@
           <Menu text="Paramètres">
             <items>
               <MenuItem onAction="#clientMessage" text="Nouveau Message" />
-                <MenuItem onAction="clientReception" text="Message Reçu" />
-                <MenuItem onAction="clientContact" text="Contact" />
+                <MenuItem onAction="#clientReception" text="Message Reçu" />
+                <MenuItem onAction="#clientContact" text="Contact" />
             </items>
           </Menu>
         </menus>
