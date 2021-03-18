@@ -10,11 +10,17 @@ import java.io.PrintStream;
 import java.util.Vector;
 
 
+/**
+ * Protocole pour l'envoie d'un message simple (a un seul destinataire).
+ * */
 public class ProtocoleEnvoieSimple implements IProtocole {
 
-    public void execute(IContext c , InputStream unInput , OutputStream unOutput, ProcessusEchange processusCourant ) {
+    /**
+     * Envoie le message a un utilisateur.
+     * */
+    public void execute(IContext c , InputStream unInput , OutputStream unOutput, ProcessusEchange processusEchangeCourant ) {
 
-        IMessagerie maMessagerie = (IMessagerie) c;
+        //IMessagerie maMessagerie = (IMessagerie) c;
         String inputReq;
         BufferedReader is = new BufferedReader(new InputStreamReader(
                 unInput));
@@ -26,8 +32,8 @@ public class ProtocoleEnvoieSimple implements IProtocole {
                 System.out.println("[ProcessusEnvoieSimple] Ordre Recu " + inputReq);
 
                 if (inputReq.contentEquals("logout")) {
-                    processusCourant.isloggedin = false;
-                    processusCourant.getClientSocket().close();
+                    processusEchangeCourant.isloggedin = false;
+                    processusEchangeCourant.getClientSocket().close();
                 }
                 else{
                     String[] chaines = inputReq.split("#");
@@ -46,7 +52,7 @@ public class ProtocoleEnvoieSimple implements IProtocole {
                         if (pe.getNom().equals(destinataire) && pe.isloggedin) {
                             //status = maMessagerie.envoyerMessage(message, pe);
                             PrintStream destinataireOS  = new PrintStream(pe.getClientSocket().getOutputStream());
-                            destinataireOS.println("[Message de " + processusCourant.getNom() + "] "+message);
+                            destinataireOS.println("[Message de " + processusEchangeCourant.getNom() + "] "+message);
                             destinataireOS.flush();
 
                             break;
@@ -55,7 +61,6 @@ public class ProtocoleEnvoieSimple implements IProtocole {
 
                     }
                 }
-
 
             }
         } catch ( Exception e) {

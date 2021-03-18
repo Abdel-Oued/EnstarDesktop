@@ -2,32 +2,20 @@ package fr.ensta.client;
 
 import fr.ensta.identification.Identification;
 
-/**
- * Cette classe represente un utilisateur de l'application.
- * */
-public class User implements IUser{
+public class Admin implements IUser{
     private String username;
     private String password;
     private ClientTCP monClientTCP;
     //private int port;
 
-    public User(String username, String password, int port){
+    public Admin(String username, String password, int port){
         this.username=username;
         this.password = password;
         this.monClientTCP = new ClientTCP("localhost",port);
     }
 
     /**
-     * Envoie un message
-     * @param message
-     * */
-    public void envoyerMessage(String message){
-        // message contient le destinataire à qui envoyer
-        String statusString = monClientTCP.transmettreChaine(message);
-    }
-
-    /**
-     * Connecte l'utilisateur au serveur.
+     * Connecte l'administrateur au serveur.
      * */
     @Override
     public boolean connexionServeur() {
@@ -35,22 +23,21 @@ public class User implements IUser{
         boolean recognized = identification.identify(this.username, this.password);
 
         if (recognized) {
-            System.out.println("Utilisateur reconnu, connexion... !");
+            System.out.println("Administrateur reconnu, connexion... !");
             boolean connected = monClientTCP.connecterAuServeur();
 
             if (connected) {
-                RecevoirMessage recevoirMessage = new RecevoirMessage(this);
-                recevoirMessage.start();
+
             }
             return connected;
         }
-        System.out.println("Utilisateur non reconnu !");
+        System.out.println("Administrateur non reconnu !");
         return false;
 
     }
 
     /**
-     * Deconnecte l'utilisateur du serveur
+     * Deconnecte l'administrateur du serveur
      * */
     @Override
     public void deconnexionServeur() {
@@ -61,5 +48,4 @@ public class User implements IUser{
     public ClientTCP getMonClientTCP() {
         return monClientTCP;
     }
-
 }

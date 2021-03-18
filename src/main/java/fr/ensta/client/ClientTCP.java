@@ -13,6 +13,9 @@ import java.net.*;
 
 import static javafx.application.Application.launch;
 
+/**
+ * Client TCP qui realise les echanges avec le serveur.
+ * */
 public class ClientTCP {
 
 	private int numeroPort;
@@ -25,18 +28,19 @@ public class ClientTCP {
 
 	private BufferedReader socIn;
 
-
-
 	private boolean connected;
 
 	
-	/** Un client se connecte a un serveur identifie par un nom (unNomServeur), sur un port unNumero */
+	/** Un client se connecte a un serveur identifie par un nom (unNomServeur), sur un port unNumero. */
 	public  ClientTCP(String unNomServeur, int unNumero) {        
 		numeroPort = unNumero;
 		nomServeur = unNomServeur;
 		connected = false;
-	} 
+	}
 
+	/**
+	 * Connexion du client TCP au le serveur.
+	 * */
 	public boolean connecterAuServeur() {        
 		boolean ok = false;
 		try {
@@ -59,8 +63,11 @@ public class ClientTCP {
 		}
 		System.out.println("Connexion faite");
 		return ok;
-	} 	
-	
+	}
+
+	/**
+	 * Deconnexion du client TCP au le serveur.
+	 * */
 	public void deconnecterDuServeur() {        
 		try {
 			System.out.println("[ClientTCP] CLIENT : " + socketServeur);
@@ -72,8 +79,11 @@ public class ClientTCP {
 		} catch (Exception e) {
 			System.err.println("Exception lors de la deconnexion :  " + e);
 		}
-	} 	
-	
+	}
+
+	/**
+	 * Transmet un message au serveur.
+	 * */
 	public String transmettreChaine(String uneChaine) {        
 		String msgServeur = null;
 		try {
@@ -83,8 +93,8 @@ public class ClientTCP {
 			//msgServeur = socIn.readLine();
 			//System.out.println( "Reponse serveur : " + msgServeur );
 
-//		} catch (UnknownHostException e) {
-//			System.err.println("Serveur inconnu : " + e);
+		//} catch (UnknownHostException e) {
+		//	System.err.println("Serveur inconnu : " + e);
 		} catch (Exception e) {
 			System.err.println("Exception entree/sortie:  " + e);
 			e.printStackTrace();

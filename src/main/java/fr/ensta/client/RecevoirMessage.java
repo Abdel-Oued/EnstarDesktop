@@ -3,12 +3,16 @@ package fr.ensta.client;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
+/**
+ * C'est un thread qui se lance a la connection d'un nouvel utilisateur.
+ * Il est charge de recuperer les messages a destination de l'utilisateur.
+ * */
 public class RecevoirMessage extends Thread{
     private User user;
 
-    public RecevoirMessage(User unUser){
+    public RecevoirMessage(User aUser){
 
-        user = unUser;
+        user = aUser;
 
     }
 

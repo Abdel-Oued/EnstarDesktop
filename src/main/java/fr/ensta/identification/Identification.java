@@ -1,6 +1,9 @@
 package fr.ensta.identification;
 import java.io.*;
 
+/**
+ * Classe qui gere la recherche d'un utilisateur qui tente de se connecter.
+ * */
 public class Identification {
 
     public Identification()

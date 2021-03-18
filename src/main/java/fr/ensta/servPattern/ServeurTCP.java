@@ -3,7 +3,9 @@ import java.io.*;
 import java.net.*;
 import java.util.Vector;
 
-
+/**
+ * Serveur TCP
+ * */
 public class ServeurTCP extends Thread{
 
 	private static int nbConnexions = 0;

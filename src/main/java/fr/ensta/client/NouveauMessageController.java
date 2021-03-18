@@ -7,6 +7,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
+/**
+ * Controller principal de la section Nouveau Message.
+ * */
 public class NouveauMessageController {
 
     @FXML private VBox nouveauMessage;
@@ -25,6 +28,10 @@ public class NouveauMessageController {
     @FXML private TextArea corpsMessage;
     @FXML private MainClientController mainController;
 
+    /**
+     * Permet de recuperer le controller principal mainClientController
+     * @param mainClientController
+     * */
     public void injectMainController(MainClientController mainClientController){
         this.mainController = mainClientController;
     }

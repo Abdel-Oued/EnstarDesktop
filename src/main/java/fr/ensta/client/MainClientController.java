@@ -7,6 +7,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
+/**
+ * Controller principal de la fenetre de discussion.
+ * */
 public class MainClientController {
 
     @FXML private Button buttonConnexion;
@@ -26,14 +29,18 @@ public class MainClientController {
     @FXML private BoiteReceptionController boiteReceptionController;
     @FXML private EnLigneController enLigneController;
 
-
     private User user;
 
+    /**
+     * Cette fonction est appelee lors de l'instantiation du controller.
+     * Chaque sous-controller a un attribut qui sera une l'actuel controller principal.
+     * */
     @FXML private void initialize(){
 
         nouveauMessageController.injectMainController(this);
         boiteReceptionController.injectMainController(this);
         enLigneController.injectMainController(this);
+
         destinataire = nouveauMessageController.getDestinataire();
         corpsMessage = nouveauMessageController.getCorpsMessage();
 

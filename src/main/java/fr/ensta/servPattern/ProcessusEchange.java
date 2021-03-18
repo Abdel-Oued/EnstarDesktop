@@ -3,13 +3,9 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * Processus de Transaction (anciennement ServeurSpecifique)
+ * Processus de Echange (anciennement ServeurSpecifique)
  */
 public class ProcessusEchange extends Thread {
-
-	public Socket getClientSocket() {
-		return clientSocket;
-	}
 
 	public ServeurTCP getMonServeurTCP() {
 		return monServeurTCP;
@@ -27,7 +23,8 @@ public class ProcessusEchange extends Thread {
 		monServeurTCP = unServeur;
 		nom = name;
 		isloggedin = true;
-	} 
+	}
+
 
 	public void run() {
 		while(isloggedin){
@@ -39,6 +36,10 @@ public class ProcessusEchange extends Thread {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public Socket getClientSocket() {
+		return clientSocket;
 	}
 
 	public String getNom() {
