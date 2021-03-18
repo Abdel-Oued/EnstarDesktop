@@ -1,0 +1,38 @@
+Dans ce premier sprint, nous nous sommes donnés pour objectif la couverture 
+des user-stories suivantes :
+	- connection + identification d'un utilisateur au démarrage de
+	  l'application (username, password)
+	- échange directe avec un autre utilisateur
+	- réception d'un message d'un autre utilisateur
+	- déconnection
+
+L'identification est faite à partir d'un fichier texte qui contient les noms 
+d'utilisateurs accompagnés de leur mot de passe. Dans les prochains sprints,
+nous permettrons l'accès et la modification de ce fichier par l'administrateur
+de EnstarDesktop.
+
+A ce stade, le scénario d'utilisation est illustré par l'exemple suivant:
+
+	- Abdel lance l'application et saisit dans les champs dédiés:
+		- Abdel (dans le champ username)
+		- 1234 (dans le champ password)
+	- Elsie lance l'application et saisit dans les champs dédiés:
+		- Elsie (dans le champ username)
+		- 1234 (dans le champ password)
+	- Lara lance l'application et saisit dans les champs dédiés:
+		- Lara (dans le champ username)
+		- 1234 (dans le champ password)
+	- Mahdi lance l'application et saisit dans les champs dédiés:
+		- Mahdi (dans le champ username)
+		- 1234 (dans le champ password)
+
+Si Elsie veut envoyer un message à Mahdi, elle doit entrer:
+	- client 4 (dans le champ destinataire) car Mahdi est le 4ème utilisateur 
+	  à s'être connecté 
+	- rediger son message
+	- cliquer sur envoyer
+Le message apparaît dans la boite de réception de Mahdi.
+
+Critique de notre solution:
+Nous sommes conscients qu'un utilisateur n'a pas à connaitre l'ordre de connection
+des autres. Nous modifirons ce fonctionnement dans le prochain sprint.
