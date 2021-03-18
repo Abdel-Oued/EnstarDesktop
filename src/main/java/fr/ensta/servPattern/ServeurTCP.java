@@ -96,6 +96,19 @@ public class ServeurTCP extends Thread{
 		return processusConnectes;
 	}
 
+	public void arret(){
+		nbConnexions =50;
+	}
 
+	public int getNbConnexions() {
+		return nbConnexions;
+	}
 
+	public static void setNbConnexions(int nbConnexions) {
+		ServeurTCP.nbConnexions = nbConnexions;
+	}
+
+	public Socket getClientSocket() {
+		return clientSocket;
+	}
 }
