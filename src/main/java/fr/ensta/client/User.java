@@ -9,16 +9,19 @@ public class User implements IUser{
     private String username;
     private String password;
     private ClientTCP monClientTCP;
+
+    private BoiteReception boiteReception;
     //private int port;
 
     public User(String username, String password, int port){
         this.username=username;
         this.password = password;
         this.monClientTCP = new ClientTCP("localhost",port);
+        this.boiteReception = new BoiteReception();
     }
 
     /**
-     * Envoie un message
+     * Envoie un message.
      * @param message
      * */
     public void envoyerMessage(String message){
@@ -50,7 +53,7 @@ public class User implements IUser{
     }
 
     /**
-     * Deconnecte l'utilisateur du serveur
+     * Deconnecte l'utilisateur du serveur.
      * */
     @Override
     public void deconnexionServeur() {
@@ -60,6 +63,10 @@ public class User implements IUser{
 
     public ClientTCP getMonClientTCP() {
         return monClientTCP;
+    }
+
+    public BoiteReception getBoiteReception() {
+        return boiteReception;
     }
 
 }

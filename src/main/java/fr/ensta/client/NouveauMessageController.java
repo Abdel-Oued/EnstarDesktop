@@ -41,4 +41,5 @@ public class NouveauMessageController {
     }
 
     @FXML private void initialize(){}
+
 }

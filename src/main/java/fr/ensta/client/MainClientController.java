@@ -1,9 +1,12 @@
 package fr.ensta.client;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -17,7 +20,7 @@ public class MainClientController {
     @FXML private TextField username;
     @FXML private PasswordField password;
 
-    @FXML private ScrollPane boiteReception;
+    @FXML private AnchorPane boiteReception;
     @FXML private VBox nouveauMessage;
     @FXML private ScrollPane enLigne;
     @FXML private Tab loginTab;
@@ -29,7 +32,7 @@ public class MainClientController {
     @FXML private BoiteReceptionController boiteReceptionController;
     @FXML private EnLigneController enLigneController;
 
-    private User user;
+    private static User user;
 
     /**
      * Cette fonction est appelee lors de l'instantiation du controller.
@@ -58,6 +61,8 @@ public class MainClientController {
             resultatConnexion.setText("Connexion reussie");
             resultatConnexion.setVisible(true);
             loginTab.setText(username.getText());
+
+            user.getBoiteReception().addObserver(boiteReceptionController);
         }
 
         else {
@@ -70,7 +75,19 @@ public class MainClientController {
         return user;
     }
 
+    public TextField getUsername() {
+        return username;
+    }
+
+    public TextField getDestinataire() {
+        return destinataire;
+    }
+
     public void deconnexion(ActionEvent actionEvent) {
         user.deconnexionServeur();
+    }
+
+    public static void close(WindowEvent event) {
+        if(user!=null){user.deconnexionServeur();}
     }
 }

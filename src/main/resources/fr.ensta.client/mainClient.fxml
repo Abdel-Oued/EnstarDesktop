@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.MainClientController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.MainClientController">
    <children>
        <TabPane layoutX="127.0" layoutY="90.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <tabs>
@@ -21,18 +21,18 @@
                   </AnchorPane>
           </Tab>
           <Tab text="Discussions">
-              <HBox prefHeight="400.0" prefWidth="600.0">
-                  <TitledPane animated="false" prefHeight="400.0" prefWidth="100.0" text="En ligne">
+              <HBox prefHeight="600.0" prefWidth="800.0">
+                  <TitledPane animated="true" prefHeight="600.0" prefWidth="100.0" text="En ligne">
                       <content>
                           <fx:include fx:id="enLigne" source="enLigne.fxml" />
                       </content>
                   </TitledPane>
-                  <TitledPane animated="false" prefHeight="400.0" prefWidth="200.0" text="Boite de reception">
+                  <TitledPane animated="true" prefHeight="600.0" prefWidth="300.0" text="Boite de reception">
                       <content>
                           <fx:include fx:id="boiteReception" source="boiteReception.fxml" />
                       </content>
                   </TitledPane>
-                  <TitledPane animated="false" prefHeight="400.0" prefWidth="300.0" text="Nouveau message">
+                  <TitledPane animated="true" prefHeight="600.0" prefWidth="400.0" text="Nouveau message">
                       <content>
                           <fx:include fx:id="nouveauMessage" source="nouveauMessage.fxml" />
                       </content>

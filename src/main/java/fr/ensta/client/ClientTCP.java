@@ -39,7 +39,7 @@ public class ClientTCP {
 	}
 
 	/**
-	 * Connexion du client TCP au le serveur.
+	 * Connexion du client TCP au serveur.
 	 * */
 	public boolean connecterAuServeur() {        
 		boolean ok = false;
