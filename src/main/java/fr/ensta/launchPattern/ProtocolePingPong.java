@@ -12,12 +12,12 @@ import fr.ensta.servPattern.ProcessusEchange;
 
 public class ProtocolePingPong implements IProtocole {
 
-	public void execute(IContext c, InputStream unInput, OutputStream unOutput, ProcessusEchange processusEchange) {
+	public void execute(IContext c , BufferedReader is, PrintStream os, String inputReq, ProcessusEchange processusEchangeCourant) {
 		
-		String inputReq;
-		BufferedReader is = new BufferedReader(new InputStreamReader(
-				unInput));
-		PrintStream os = new PrintStream(unOutput);
+//		String inputReq;
+//		BufferedReader is = new BufferedReader(new InputStreamReader(
+//				unInput));
+//		PrintStream os = new PrintStream(unOutput);
 		try {
 			String valeurExpediee = "";
 

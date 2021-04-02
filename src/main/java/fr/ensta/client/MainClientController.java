@@ -22,7 +22,7 @@ public class MainClientController {
 
     @FXML private AnchorPane boiteReception;
     @FXML private VBox nouveauMessage;
-    @FXML private ScrollPane enLigne;
+    @FXML private AnchorPane enLigne;
     @FXML private Tab loginTab;
     @FXML private TextField destinataire;
     @FXML private TextArea corpsMessage;

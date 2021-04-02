@@ -41,15 +41,13 @@ public class ClientTCP {
 	/**
 	 * Connexion du client TCP au serveur.
 	 * */
-	public boolean connecterAuServeur() {        
-		boolean ok = false;
+	public boolean connecterAuServeur() {
 		try {
 			System.out.println("Tentative : " + nomServeur + " -- " + numeroPort);
 			socketServeur = new Socket( nomServeur, numeroPort);
 			socOut = new PrintStream(socketServeur.getOutputStream());
 			socIn = new BufferedReader ( 
 					new InputStreamReader (socketServeur.getInputStream()));
-			ok = true;
 			connected = true;
 		} catch (UnknownHostException e) {
 			System.err.println("Serveur inconnu : " + e);
@@ -62,7 +60,7 @@ public class ClientTCP {
 			System.err.println("Exception lors de l'echange de donnees:" + e);
 		}
 		System.out.println("Connexion faite");
-		return ok;
+		return connected;
 	}
 
 	/**

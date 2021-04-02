@@ -2,6 +2,8 @@ package fr.ensta.client;
 
 import fr.ensta.identification.Identification;
 
+import java.util.ArrayList;
+
 /**
  * Cette classe represente un utilisateur de l'application.
  * */
@@ -11,6 +13,7 @@ public class User implements IUser{
     private ClientTCP monClientTCP;
 
     private BoiteReception boiteReception;
+    private ArrayList<String> connectedUsers;
     //private int port;
 
     public User(String username, String password, int port){
@@ -18,6 +21,7 @@ public class User implements IUser{
         this.password = password;
         this.monClientTCP = new ClientTCP("localhost",port);
         this.boiteReception = new BoiteReception();
+        this.connectedUsers = new ArrayList<>();
     }
 
     /**
@@ -26,7 +30,7 @@ public class User implements IUser{
      * */
     public void envoyerMessage(String message){
         // message contient le destinataire à qui envoyer
-        String statusString = monClientTCP.transmettreChaine(message);
+        String statusString = monClientTCP.transmettreChaine("messageSimple#"+message);
     }
 
     /**
@@ -34,22 +38,15 @@ public class User implements IUser{
      * */
     @Override
     public boolean connexionServeur() {
-        Identification identification = new Identification();
-        boolean recognized = identification.identify(this.username, this.password);
+        System.out.println("Utilisateur reconnu, connexion... !");
+        boolean connected = monClientTCP.connecterAuServeur();
 
-        if (recognized) {
-            System.out.println("Utilisateur reconnu, connexion... !");
-            boolean connected = monClientTCP.connecterAuServeur();
-
-            if (connected) {
-                RecevoirMessage recevoirMessage = new RecevoirMessage(this);
-                recevoirMessage.start();
-            }
-            return connected;
+        if (connected) {
+            monClientTCP.transmettreChaine("connexion#"+username+"#"+password);
+            RecevoirMessage recevoirMessage = new RecevoirMessage(this);
+            recevoirMessage.start();
         }
-        System.out.println("Utilisateur non reconnu !");
-        return false;
-
+        return connected;
     }
 
     /**
@@ -69,4 +66,11 @@ public class User implements IUser{
         return boiteReception;
     }
 
+    public ArrayList<String> getConnectedUsers() {
+        return connectedUsers;
+    }
+
+    public void setConnectedUsers(ArrayList<String> connectedUsers) {
+        this.connectedUsers = connectedUsers;
+    }
 }

@@ -3,6 +3,7 @@ package fr.ensta.client;
 import java.io.IOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 /**
  * C'est un thread qui se lance a la connection d'un nouvel utilisateur.
@@ -24,7 +25,23 @@ public class RecevoirMessage extends Thread{
             try {
                 if ( (messageRecu = user.getMonClientTCP().getSocIn().readLine()) != null) {
                     System.out.println( "Message recu : " + messageRecu);
-                    user.getBoiteReception().addMessage(messageRecu);
+                    String[] chaines = messageRecu.split("#");
+                    String entete = chaines[0];
+                    String contenu = chaines[1];
+
+                    if (entete.equals("messageSimple")) {
+                        user.getBoiteReception().addMessage(contenu);
+                    }
+
+                    if (entete.equals("listeConnectes")) {
+                        // mise a jour de la liste user.connectedUsers
+                        String[] connectedUsersList = contenu.split("-");
+                        ArrayList<String> connectedUsers = new ArrayList<>();
+                        for(String user : connectedUsersList) {
+                            connectedUsers.add(user);
+                        }
+                        user.setConnectedUsers(connectedUsers);
+                    }
                 }
 
             } catch (UnknownHostException e) {

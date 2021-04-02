@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<ScrollPane fx:id="enLigne" prefHeight="400.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.EnLigneController">
-   <content>
-      <ListView prefHeight="399.0" prefWidth="100.0" />
-   </content>
-</ScrollPane>
+<AnchorPane fx:id="enLigne" prefHeight="400.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.EnLigneController">
+   <ScrollPane layoutX="7.0" layoutY="14.0" prefHeight="399.0" prefWidth="90.0">
+      <content>
+         <ListView fx:id="utilisateursConnectes" prefHeight="398.0" prefWidth="80.0" />
+      </content>
+   </ScrollPane>
+   <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#update" text="Actualiser" />
+   
+</AnchorPane>

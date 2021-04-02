@@ -1,4 +1,6 @@
 package fr.ensta.servPattern;
+import fr.ensta.serveurMessagerie.UtilisateursConnectes;
+
 import java.io.*;
 import java.net.*;
 import java.util.Vector;
