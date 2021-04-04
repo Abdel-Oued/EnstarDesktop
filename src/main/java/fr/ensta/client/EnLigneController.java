@@ -31,6 +31,7 @@ public class EnLigneController {
 
     @FXML
     private void update() {
+        utilisateursConnectes.getItems().clear();
         mainController.getUser().getMonClientTCP().transmettreChaine("utilisateursConnectes");
         ArrayList<String> connectedUsers = mainController.getUser().getConnectedUsers();
 
