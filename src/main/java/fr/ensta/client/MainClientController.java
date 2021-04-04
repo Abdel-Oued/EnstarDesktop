@@ -1,11 +1,13 @@
 package fr.ensta.client;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
@@ -31,7 +33,7 @@ public class MainClientController {
     @FXML private NouveauMessageController nouveauMessageController;
     @FXML private BoiteReceptionController boiteReceptionController;
     @FXML private EnLigneController enLigneController;
-
+    @FXML private AddRemoveClientController addRemoveClientController;
     private static User user;
 
     /**
@@ -43,7 +45,7 @@ public class MainClientController {
         nouveauMessageController.injectMainController(this);
         boiteReceptionController.injectMainController(this);
         enLigneController.injectMainController(this);
-
+        //addRemoveClientController.injectMainController(this);
         destinataire = nouveauMessageController.getDestinataire();
         corpsMessage = nouveauMessageController.getCorpsMessage();
 
@@ -85,6 +87,7 @@ public class MainClientController {
 
     public void deconnexion(ActionEvent actionEvent) {
         user.deconnexionServeur();
+        Platform.exit();
     }
 
     public static void close(WindowEvent event) {
