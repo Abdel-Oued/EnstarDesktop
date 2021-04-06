@@ -1,0 +1,85 @@
+/*JAVAFX CSS */
+
+/*root{
+    display: block;
+}
+.root{
+    -fx-background-image: url("Logo.png");
+    -fx-background-position: center;
+}*/
+
+#anchorPane{
+    -fx-background-image: url("Bandeau_ENSTABretagne.png");
+    -fx-background-position: bottom;
+}
+
+#loginTab{
+    -fx-alignment: center-left;
+    -fx-fill-width: boolean;
+    -fx-background-color: steelblue;
+}
+
+
+.button{
+    -fx-font-size: 16px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-background-color: steelblue;
+    -fx-fill: #818181;
+    -fx-text-fill: black;
+
+}
+
+#resultatConnexion{
+    -fx-font-size: 12px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+}
+#password{
+    -fx-background-color: powderblue;
+}
+
+#username{
+    -fx-background-color: powderblue;
+}
+
+#discussionTab{
+    -fx-alignment: center-left;
+    -fx-fill-width: boolean;
+    -fx-background-color: steelblue;
+}
+
+#enLigne{
+    -fx-background-color: powderblue;
+}
+
+#utilisateursConnectes{
+    -fx-background-color: powderblue;
+}
+
+#buttonUpdate{
+    -fx-background-color: powderblue;
+}
+
+#nouveauMessage{
+    -fx-background-color: cornflowerblue;
+
+}
+
+#buttonUpdate{
+    -fx-font-size: 16px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-background-color: steelblue;
+    -fx-fill: #818181;
+    -fx-text-fill: black;
+    -fx-content-display: center;
+}
+
+
+
+
+
+
