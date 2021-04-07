@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * Cette classe represente un utilisateur de l'application.
  * */
 public class User implements IUser{
+
     private String username;
     private String password;
     private ClientTCP monClientTCP;
@@ -38,15 +39,22 @@ public class User implements IUser{
      * */
     @Override
     public boolean connexionServeur() {
-        System.out.println("Utilisateur reconnu, connexion... !");
-        boolean connected = monClientTCP.connecterAuServeur();
+        Identification identification = new Identification();
+        boolean recognized = identification.identify(this.username, this.password);
 
-        if (connected) {
-            monClientTCP.transmettreChaine("connexion#"+username+"#"+password);
-            RecevoirMessage recevoirMessage = new RecevoirMessage(this);
-            recevoirMessage.start();
+        if (recognized) {
+            System.out.println("Utilisateur reconnu, connexion... !");
+            boolean connected = monClientTCP.connecterAuServeur();
+
+            if (connected) {
+                monClientTCP.transmettreChaine("connexion#"+username+"#"+password);
+                RecevoirMessage recevoirMessage = new RecevoirMessage(this);
+                recevoirMessage.start();
+            }
+            return connected;
         }
-        return connected;
+        System.out.println("Utilisateur non reconnu !");
+        return false;
     }
 
     /**
@@ -56,6 +64,10 @@ public class User implements IUser{
     public void deconnexionServeur() {
         monClientTCP.transmettreChaine("logout");
         monClientTCP.deconnecterDuServeur();
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public ClientTCP getMonClientTCP() {

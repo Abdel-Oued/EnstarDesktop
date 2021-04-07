@@ -43,7 +43,7 @@
               <HBox prefHeight="600.0" prefWidth="800.0">
                   <TitledPane animated="true" prefHeight="600.0" prefWidth="100.0" text="Admin">
                       <content>
-                          <fx:include fx:id="Users" source="addRemoveClient.fxml" />
+                          <fx:include fx:id="addRemoveClient" source="addRemoveClient.fxml" />
                       </content>
                   </TitledPane>
               </HBox>

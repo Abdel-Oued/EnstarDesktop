@@ -44,7 +44,7 @@ public class AddRemoveClientController {
         lstUsers.getItems().clear();
         //ShowUsers.getItems().add("hello");
         try {
-            File myObj = new File("C:\\Users\\user\\IdeaProjects\\EnstarDesktopp\\src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt");
+            File myObj = new File("src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -62,7 +62,7 @@ public class AddRemoveClientController {
         String password=txtPassword.getText();
         try {
             //test if exist***
-            FileWriter myWriter = new FileWriter("C:\\Users\\user\\IdeaProjects\\EnstarDesktopp\\src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt",true);
+            FileWriter myWriter = new FileWriter("src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt",true);
             myWriter.write(username+";"+password+'\n');
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -76,8 +76,8 @@ public class AddRemoveClientController {
     private void RemoveUsers() throws IOException {
         String username=txtUsername.getText();
         String password=txtPassword.getText();
-        File inputFile = new File("C:\\Users\\user\\IdeaProjects\\EnstarDesktopp\\src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt");
-        File tempFile = new File("C:\\Users\\user\\IdeaProjects\\EnstarDesktopp\\src\\main\\resources\\fr.ensta.identification\\myTempFile.txt");
+        File inputFile = new File("src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt");
+        File tempFile = new File("src\\main\\resources\\fr.ensta.identification\\myTempFile.txt");
 
         BufferedReader reader = new BufferedReader(new FileReader(inputFile));
         BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
