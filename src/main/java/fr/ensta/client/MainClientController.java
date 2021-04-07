@@ -27,7 +27,7 @@ public class MainClientController {
     @FXML private AnchorPane enLigne;
     @FXML private Tab loginTab;
     @FXML private Tab discussionTab;
-    @FXML private Tab Admin;
+    @FXML private Tab adminTab;
     @FXML private TextField destinataire;
     @FXML private TextArea corpsMessage;
     @FXML private Label resultatConnexion;
@@ -50,19 +50,18 @@ public class MainClientController {
         //addRemoveClientController.injectMainController(this);
         destinataire = nouveauMessageController.getDestinataire();
         corpsMessage = nouveauMessageController.getCorpsMessage();
-        //Admin.setDisable(true);
+        adminTab.setDisable(true);
     }
 
     @FXML
     private void connexion(ActionEvent actionEvent) {
         user = new User(username.getText(), password.getText(), 6666);
-//        Admin.setDisable(true);
         if ( user.connexionServeur() ) {
-//            if(user.getUsername()=="admin")
-//            {
-//                Admin.setDisable(false);
-//                discussionTab.setDisable(true);
-//            }
+            if(user.getUsername().contentEquals("admin"))
+            {
+                adminTab.setDisable(false);
+                discussionTab.setDisable(true);
+            }
             buttonConnexion.setVisible(false);
             buttonDeconnexion.setVisible(true);
             destinataire.setEditable(true);

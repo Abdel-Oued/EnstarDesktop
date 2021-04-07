@@ -39,7 +39,7 @@
                   </TitledPane>
               </HBox>
           </Tab>
-          <Tab text="Admin">
+          <Tab fx:id="adminTab" text="Admin">
               <HBox prefHeight="600.0" prefWidth="800.0">
                   <TitledPane animated="true" prefHeight="600.0" prefWidth="100.0" text="Admin">
                       <content>
