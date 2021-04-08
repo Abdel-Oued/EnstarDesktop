@@ -60,6 +60,8 @@ public class ProcessusEchange extends Thread {
 						protocole = new ProtocoleEnLigne();
 					} else if (entete.contentEquals("connexion")) {
 						protocole = new ProtocoleConnexion();
+					} else if (entete.contentEquals("messageMultiple")) {
+						protocole = new ProtocolEnvoieMultiple();
 					}
 				}
 

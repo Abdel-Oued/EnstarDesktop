@@ -34,6 +34,11 @@ public class User implements IUser{
         String statusString = monClientTCP.transmettreChaine("messageSimple#"+message);
     }
 
+    public void envoyerMessageTout(String message){
+        // message contient le destinataire à qui envoyer
+        String statusString = monClientTCP.transmettreChaine("messageMultiple#"+message);
+    }
+
     /**
      * Connecte l'utilisateur au serveur.
      * */

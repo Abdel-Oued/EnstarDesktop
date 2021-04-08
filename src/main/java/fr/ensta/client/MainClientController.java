@@ -31,6 +31,7 @@ public class MainClientController {
     @FXML private TextField destinataire;
     @FXML private TextArea corpsMessage;
     @FXML private Label resultatConnexion;
+    @FXML private TabPane allTabs;
 
     @FXML private NouveauMessageController nouveauMessageController;
     @FXML private BoiteReceptionController boiteReceptionController;
@@ -50,7 +51,9 @@ public class MainClientController {
         //addRemoveClientController.injectMainController(this);
         destinataire = nouveauMessageController.getDestinataire();
         corpsMessage = nouveauMessageController.getCorpsMessage();
-        adminTab.setDisable(true);
+        allTabs.getTabs().remove(adminTab);
+        allTabs.getTabs().remove(discussionTab);
+
     }
 
     @FXML
@@ -58,10 +61,9 @@ public class MainClientController {
         user = new User(username.getText(), password.getText(), 6666);
         if ( user.connexionServeur() ) {
             if(user.getUsername().contentEquals("admin"))
-            {
-                adminTab.setDisable(false);
-                discussionTab.setDisable(true);
-            }
+                allTabs.getTabs().add(adminTab);
+            else
+                allTabs.getTabs().add(discussionTab);
             buttonConnexion.setVisible(false);
             buttonDeconnexion.setVisible(true);
             destinataire.setEditable(true);

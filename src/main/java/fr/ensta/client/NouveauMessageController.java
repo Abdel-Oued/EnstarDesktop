@@ -37,7 +37,10 @@ public class NouveauMessageController {
     }
 
     @FXML private void envoyerMessage(ActionEvent actionEvent) {
-        mainController.getUser().envoyerMessage(corpsMessage.getText() + "#" + destinataire.getText());
+        if (destinataire.getText().contentEquals("everyone"))
+            mainController.getUser().envoyerMessageTout(corpsMessage.getText());
+        else
+            mainController.getUser().envoyerMessage(corpsMessage.getText() + "#" + destinataire.getText());
     }
 
     @FXML private void initialize(){}
