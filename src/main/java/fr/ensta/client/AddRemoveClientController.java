@@ -79,21 +79,25 @@ public class AddRemoveClientController {
     }
 
     @FXML
-    private void AddUsers() {
+    private void addUsers() {
         String username=txtUsername.getText();
         String password=txtPassword.getText();
 
         mainController.getUser().getMonClientTCP().transmettreChaine("ajoutUtilisateur#"+username+"#"+password);
 
-
+        txtUsername.clear();
+        txtPassword.clear();
     }
+
     @FXML
-    private void RemoveUsers() {
+    private void removeUsers() {
         String username=txtUsername.getText();
         String password=txtPassword.getText();
 
         mainController.getUser().getMonClientTCP().transmettreChaine("suppressionUtilisateur#"+username+"#"+password);
 
+        txtUsername.clear();
+        txtPassword.clear();
     }
 
 }

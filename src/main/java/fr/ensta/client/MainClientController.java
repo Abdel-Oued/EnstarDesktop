@@ -48,7 +48,7 @@ public class MainClientController {
         nouveauMessageController.injectMainController(this);
         boiteReceptionController.injectMainController(this);
         enLigneController.injectMainController(this);
-        //addRemoveClientController.injectMainController(this);
+        addRemoveClientController.injectMainController(this);
         destinataire = nouveauMessageController.getDestinataire();
         corpsMessage = nouveauMessageController.getCorpsMessage();
         allTabs.getTabs().remove(adminTab);
@@ -60,9 +60,10 @@ public class MainClientController {
     private void connexion(ActionEvent actionEvent) {
         user = new User(username.getText(), password.getText(), 6666);
         if ( user.connexionServeur() ) {
-            if(user.getUsername().contentEquals("admin"))
+            if(user.getUsername().contentEquals("admin")) {
+                //user = (Admin) user;
                 allTabs.getTabs().add(adminTab);
-            else
+            } else
                 allTabs.getTabs().add(discussionTab);
             buttonConnexion.setVisible(false);
             buttonDeconnexion.setVisible(true);
@@ -95,6 +96,7 @@ public class MainClientController {
 
     public void deconnexion(ActionEvent actionEvent) {
         user.deconnexionServeur();
+        System.out.println("Fermeture de la session");
         Platform.exit();
     }
 

@@ -10,13 +10,13 @@
           <Tab fx:id="loginTab" text="Login">
                   <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@welcomePage.css">
                       <children>
-                      <PasswordField fx:id="password" alignment="CENTER" layoutX="225.0" layoutY="172.0" text="Password" />
-                      <TextField fx:id="username" alignment="CENTER" layoutX="217.0" layoutY="123.0" prefHeight="35.0" prefWidth="165.0" text="Nom d'utilisateur">
+                      <PasswordField fx:id="password" alignment="CENTER" layoutX="315.0" layoutY="295.0" prefHeight="30.0" prefWidth="138.0" text="Password" />
+                      <TextField fx:id="username" alignment="CENTER" layoutX="314.0" layoutY="240.0" prefHeight="36.0" prefWidth="139.0" text="Nom d'utilisateur">
 
                       </TextField>
-                      <Button fx:id="buttonConnexion" alignment="CENTER" layoutX="238.0" layoutY="224.0" mnemonicParsing="false" onAction="#connexion" prefHeight="35.0" prefWidth="124.0" stylesheets="@welcomePage.css" text="Connexion" />
-                      <Button fx:id="buttonDeconnexion" layoutX="257.0" layoutY="268.0" mnemonicParsing="false" onAction="#deconnexion" text="Deconnexion" visible="false" />
-                     <Label fx:id="resultatConnexion" alignment="CENTER" layoutX="209.0" layoutY="58.0" prefHeight="17.0" prefWidth="181.0" text="Veuillez entrer vos identifiants" />
+                      <Button fx:id="buttonConnexion" alignment="CENTER" layoutX="308.0" layoutY="373.0" mnemonicParsing="false" onAction="#connexion" prefHeight="36.0" prefWidth="149.0" stylesheets="@welcomePage.css" text="Connexion" />
+                      <Button fx:id="buttonDeconnexion" layoutX="308.0" layoutY="372.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="39.0" prefWidth="149.0" text="Deconnexion" visible="false" />
+                     <Label fx:id="resultatConnexion" alignment="CENTER" layoutX="293.0" layoutY="119.0" prefHeight="60.0" prefWidth="188.0" text="Veuillez entrer vos identifiants" />
                       </children>
                   </AnchorPane>
           </Tab>
@@ -39,13 +39,14 @@
                   </TitledPane>
               </HBox>
           </Tab>
-          <Tab fx:id="adminTab" text="Admin">
+          <Tab fx:id="adminTab" text="Administration">
               <HBox prefHeight="600.0" prefWidth="800.0">
-                  <TitledPane animated="true" prefHeight="600.0" prefWidth="100.0" text="Admin">
-                      <content>
-                          <fx:include fx:id="addRemoveClient" source="addRemoveClient.fxml" />
-                      </content>
-                  </TitledPane>
+<!--                  <TitledPane animated="true" prefHeight="600.0" prefWidth="100.0" text="Admin">-->
+<!--                      <content>-->
+<!--                          <fx:include fx:id="addRemoveClient" source="addRemoveClient.fxml" />-->
+<!--                      </content>-->
+<!--                  </TitledPane>-->
+                  <fx:include fx:id="addRemoveClient" source="addRemoveClient.fxml" />
               </HBox>
           </Tab>
       </tabs>

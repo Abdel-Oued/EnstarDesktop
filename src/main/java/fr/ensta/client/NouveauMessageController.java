@@ -41,6 +41,8 @@ public class NouveauMessageController {
             mainController.getUser().envoyerMessageTout(corpsMessage.getText());
         else
             mainController.getUser().envoyerMessage(corpsMessage.getText() + "#" + destinataire.getText());
+        destinataire.clear();
+        corpsMessage.clear();
     }
 
     @FXML private void initialize(){}
