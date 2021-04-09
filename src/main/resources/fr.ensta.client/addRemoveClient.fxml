@@ -29,8 +29,8 @@
     <Button fx:id="buttonUpdate2" layoutX="113.0" layoutY="399.0" mnemonicParsing="false" onAction="#updateConnectedUsers" prefHeight="25.0" prefWidth="79.0" text="Actualiser" />
     <Button fx:id="btnShow" layoutX="15.0" layoutY="399.0" mnemonicParsing="false" onAction="#updateAllUsers" prefHeight="25.0" prefWidth="79.0" text="Actualiser" />
 <!--   <ListView fx:id="lstAddUsers" layoutX="187.0" prefHeight="398.0" prefWidth="208.0" />-->
-   <TextField fx:id="txtUsername" layoutX="271.0" layoutY="160.0" />
-   <TextField fx:id="txtPassword" layoutX="271.0" layoutY="213.0" />
+   <TextField fx:id="txtUsername" layoutX="271.0" layoutY="160.0" promptText="Username"/>
+   <TextField fx:id="txtPassword" layoutX="271.0" layoutY="213.0" promptText="Password"/>
     <Button fx:id="btnAdd" layoutX="218.0" layoutY="15.0" mnemonicParsing="false" onAction="#addUsers" prefHeight="25.0" prefWidth="108.0" text="Creer compte" />
    <Button fx:id="btnRemove" layoutX="404.0" layoutY="15.0" mnemonicParsing="false" onAction="#removeUsers" text="Supprimer compte" />
 
