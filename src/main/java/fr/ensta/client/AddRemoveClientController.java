@@ -23,12 +23,15 @@ public class AddRemoveClientController {
     public Button btnShow;
     public Button btnAdd;
     public Button btnRemove;
+    public Button buttonUpdate2;
+    public ListView utilisateursConnectes2;
     @FXML private ListView lstUsers;
     @FXML private AnchorPane Users;
     @FXML private ListView lstAddUsers;
     @FXML private TextField txtUsername;
     @FXML private TextField txtPassword;
     @FXML private MainClientController mainController;
+    private String rep;
 
     /**
      * Permet de recuperer le controller principal mainClientController
@@ -40,64 +43,58 @@ public class AddRemoveClientController {
 
 
     @FXML
-    private void update() {
+    private void updateAllUsers() {
         lstUsers.getItems().clear();
-        //ShowUsers.getItems().add("hello");
+        rep = mainController.getUser().getMonClientTCP().transmettreChaine("tousUtilisateurs");
         try {
-            File myObj = new File("src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                lstUsers.getItems().add(data);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        ArrayList<String> allUsers = mainController.getUser().getAllUsers();
+
+        for (String user : allUsers) {
+            lstUsers.getItems().add(user);
         }
+    }
+
+
+    @FXML
+    private void updateConnectedUsers() {
+        utilisateursConnectes2.getItems().clear();
+        rep = mainController.getUser().getMonClientTCP().transmettreChaine("utilisateursConnectes");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        ArrayList<String> connectedUsers = mainController.getUser().getConnectedUsers();
+
+        for (String user : connectedUsers) {
+            utilisateursConnectes2.getItems().add(user);
+        }
+
+    }
+
     @FXML
     private void AddUsers() {
         String username=txtUsername.getText();
         String password=txtPassword.getText();
-        try {
-            //test if exist***
-            FileWriter myWriter = new FileWriter("src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt",true);
-            myWriter.write(username+";"+password+'\n');
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+
+        mainController.getUser().getMonClientTCP().transmettreChaine("ajoutUtilisateur#"+username+"#"+password);
+
 
     }
     @FXML
-    private void RemoveUsers() throws IOException {
+    private void RemoveUsers() {
         String username=txtUsername.getText();
         String password=txtPassword.getText();
-        File inputFile = new File("src\\main\\resources\\fr.ensta.identification\\utilisateurs.txt");
-        File tempFile = new File("src\\main\\resources\\fr.ensta.identification\\myTempFile.txt");
 
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-        String lineToRemove = username+";"+password;
-        String currentLine;
-
-        while((currentLine = reader.readLine()) != null) {
-            // trim newline when comparing with lineToRemove
-            String trimmedLine = currentLine.trim();
-            if(trimmedLine.equals(lineToRemove)) continue;
-            writer.write(currentLine + System.getProperty("line.separator"));
-        }
-        writer.close();
-        reader.close();
-        boolean successful = tempFile.renameTo(inputFile);
-        FileChannel src = new FileInputStream(tempFile).getChannel();
-        FileChannel dest = new FileOutputStream(inputFile).getChannel();
-        dest.transferFrom(src, 0, src.size());
-    }
+        mainController.getUser().getMonClientTCP().transmettreChaine("suppressionUtilisateur#"+username+"#"+password);
 
     }
+
+}
 

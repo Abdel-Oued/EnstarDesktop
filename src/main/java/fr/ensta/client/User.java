@@ -1,7 +1,5 @@
 package fr.ensta.client;
 
-import fr.ensta.identification.Identification;
-
 import java.util.ArrayList;
 
 /**
@@ -15,6 +13,8 @@ public class User implements IUser{
 
     private BoiteReception boiteReception;
     private ArrayList<String> connectedUsers;
+    private ArrayList<String> allUsers;
+
     //private int port;
 
     public User(String username, String password, int port){
@@ -23,6 +23,7 @@ public class User implements IUser{
         this.monClientTCP = new ClientTCP("localhost",port);
         this.boiteReception = new BoiteReception();
         this.connectedUsers = new ArrayList<>();
+        this.allUsers = new ArrayList<>();
     }
 
     /**
@@ -44,20 +45,21 @@ public class User implements IUser{
      * */
     @Override
     public boolean connexionServeur() {
-        Identification identification = new Identification();
-        boolean recognized = identification.identify(this.username, this.password);
+//        Identification identification = new Identification();
+//        boolean recognized = identification.identify(this.username, this.password);
+//
+//        if (recognized) {
+//            System.out.println("Utilisateur reconnu, connexion... !");}
+        boolean connected = monClientTCP.connecterAuServeur();
 
-        if (recognized) {
-            System.out.println("Utilisateur reconnu, connexion... !");
-            boolean connected = monClientTCP.connecterAuServeur();
-
-            if (connected) {
-                monClientTCP.transmettreChaine("connexion#"+username+"#"+password);
-                RecevoirMessage recevoirMessage = new RecevoirMessage(this);
-                recevoirMessage.start();
-            }
+        if (connected) {
+            monClientTCP.transmettreChaine("connexion#"+username+"#"+password);
+            RecevoirMessage recevoirMessage = new RecevoirMessage(this);
+            recevoirMessage.start();
             return connected;
         }
+            //return connected;
+        //}
         System.out.println("Utilisateur non reconnu !");
         return false;
     }
@@ -89,5 +91,13 @@ public class User implements IUser{
 
     public void setConnectedUsers(ArrayList<String> connectedUsers) {
         this.connectedUsers = connectedUsers;
+    }
+
+    public ArrayList<String> getAllUsers() {
+        return allUsers;
+    }
+
+    public void setAllUsers(ArrayList<String> allUsers) {
+        this.allUsers = allUsers;
     }
 }

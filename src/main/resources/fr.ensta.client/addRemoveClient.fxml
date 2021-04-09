@@ -4,16 +4,22 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="Users" prefHeight="400.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensta.client.AddRemoveClientController">
-    <ScrollPane layoutX="7.0" prefHeight="406.0" prefWidth="338.0">
+    <ScrollPane layoutX="7.0" prefHeight="399.0" prefWidth="90.0">
         <content>
-            <ListView fx:id="lstUsers" prefHeight="398.0" prefWidth="130.0" />
+            <ListView fx:id="lstUsers" prefHeight="398.0" prefWidth="76.0" />
         </content>
     </ScrollPane>
-    <Button fx:id="btnShow" mnemonicParsing="false" onAction="#update" text="Show" />
-   <ListView fx:id="lstAddUsers" layoutX="137.0" prefHeight="398.0" prefWidth="211.0" />
-   <Button fx:id="btnAdd" layoutX="137.0" layoutY="2.0" mnemonicParsing="false" onAction="#AddUsers" text="AddUsers" />
-   <TextField fx:id="txtUsername" layoutX="137.0" layoutY="56.0" />
-   <TextField fx:id="txtPassword" layoutX="138.0" layoutY="100.0" />
-   <Button fx:id="btnRemove" layoutX="243.0" layoutY="2.0" mnemonicParsing="false" onAction="#RemoveUsers" text="RemoveUsers" />
+    <ScrollPane fx:id="scrollPane2" layoutX="97.0" prefHeight="399.0" prefWidth="90.0">
+        <content>
+            <ListView fx:id="utilisateursConnectes2" prefHeight="370.0" prefWidth="84.0" />
+        </content>
+    </ScrollPane>
+    <Button fx:id="buttonUpdate2" layoutX="106.0" layoutY="400.0" mnemonicParsing="false" onAction="#updateConnectedUsers" text="En ligne" />
+    <Button fx:id="btnShow" layoutX="18.0" layoutY="400.0" mnemonicParsing="false" onAction="#updateAllUsers" text="Utilisateurs" />
+   <ListView fx:id="lstAddUsers" layoutX="187.0" prefHeight="398.0" prefWidth="208.0" />
+   <Button fx:id="btnAdd" layoutX="198.0" layoutY="2.0" mnemonicParsing="false" onAction="#AddUsers" text="AddUsers" />
+   <TextField fx:id="txtUsername" layoutX="213.0" layoutY="60.0" />
+   <TextField fx:id="txtPassword" layoutX="213.0" layoutY="106.0" />
+   <Button fx:id="btnRemove" layoutX="288.0" layoutY="2.0" mnemonicParsing="false" onAction="#RemoveUsers" text="RemoveUsers" />
 
 </AnchorPane>

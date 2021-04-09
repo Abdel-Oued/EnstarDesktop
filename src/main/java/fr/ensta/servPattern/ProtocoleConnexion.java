@@ -11,7 +11,7 @@ import java.util.Vector;
  * */
 public class ProtocoleConnexion implements IProtocole {
 
-    private Identification identification = new Identification();
+    //private Identification identification = new Identification();
     /**
      * Envoie le message a un utilisateur.
      * */
@@ -33,7 +33,7 @@ public class ProtocoleConnexion implements IProtocole {
                 String nomUtilisateur = chaines[1];
                 String motDePasse = chaines[2];
 
-                if (identification.identify(nomUtilisateur, motDePasse)) {
+                if (maMessagerie.identify(nomUtilisateur, motDePasse)) {
                     maMessagerie.addConnectedUser(nomUtilisateur);
                     processusEchangeCourant.setNom(nomUtilisateur);
                     //processusEchangeCourant.setProtocole(new ProtocoleEnvoieSimple());

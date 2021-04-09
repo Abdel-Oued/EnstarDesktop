@@ -62,6 +62,10 @@ public class ProcessusEchange extends Thread {
 						protocole = new ProtocoleConnexion();
 					} else if (entete.contentEquals("messageMultiple")) {
 						protocole = new ProtocolEnvoieMultiple();
+					} else if (entete.contentEquals("ajoutUtilisateur") || entete.contentEquals("suppressionUtilisateur")) {
+						protocole = new ProtocoleAjoutSuppression();
+					} else if (entete.contentEquals("tousUtilisateurs") || entete.contentEquals("suppressionUtilisateur")) {
+						protocole = new ProtocoleTousUtilisateurs();
 					}
 				}
 

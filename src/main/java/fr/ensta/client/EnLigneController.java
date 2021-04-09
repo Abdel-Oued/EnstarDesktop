@@ -30,9 +30,15 @@ public class EnLigneController {
     }
 
     @FXML
-    private void update() {
+    private void updateConnectedUsers() {
         utilisateursConnectes.getItems().clear();
         mainController.getUser().getMonClientTCP().transmettreChaine("utilisateursConnectes");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         ArrayList<String> connectedUsers = mainController.getUser().getConnectedUsers();
 
         for (String user : connectedUsers) {
