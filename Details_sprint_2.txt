@@ -1,0 +1,37 @@
+Dans ce deuxième sprint, nous nous sommes donnés pour objectif l'accès et la modification 
+de ce fichier par l'administrateur de EnstarDesktop.
+
+	- Nous avons observé la meme méthode de connection
+
+L'identification est faite à partir d'un fichier texte qui contient les noms d'utilisateurs 
+accompagnés de leur mot de passe. Nous avons permis l'accès et la modification de ce fichier 
+par l'administrateur de EnstarDesktop.
+
+L'administrateur peut:
+ - Creer les comptes utilisateurs
+ - Supprimer un ou plusieurs compte utilisateur
+
+Au final, le scénario d'utilisation est illustré par l'exemple suivant:
+
+        - L'admin lance l'application et saisit dans les champs dédiés:
+		- admin(dans le champ username)
+		- admin(dans le champ password)
+
+	- Abdel lance l'application et saisit dans les champs dédiés:
+		- Abdel (dans le champ username)
+		- 1234 (dans le champ password)
+	- Elsie lance l'application et saisit dans les champs dédiés:
+		- Elsie (dans le champ username)
+		- 1234 (dans le champ password)
+	- Lara lance l'application et saisit dans les champs dédiés:
+		- Lara (dans le champ username)
+		- 1234 (dans le champ password)
+	- Mahdi lance l'application et saisit dans les champs dédiés:
+		- Mahdi (dans le champ username)
+		- 1234 (dans le champ password)
+
+Si Elsie veut envoyer un message à Mahdi, elle doit entrer:
+	- Mahdi (dans le champ destinataire)
+	- rediger son message
+	- cliquer sur envoyer
+Le message apparaît dans la boite de réception de Mahdi.
